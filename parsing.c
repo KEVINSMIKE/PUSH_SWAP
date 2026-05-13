@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mballo <mballo@learner.42.tech>            +#+  +:+       +#+        */
+/*   By: mballo <mballo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 16:57:53 by mballo            #+#    #+#             */
-/*   Updated: 2026/05/12 17:58:13 by mballo           ###   ########.fr       */
+/*   Updated: 2026/05/13 13:42:26 by mballo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,12 @@ long	ft_atoi(char *str)
 		i++;
 	}
 	while (str[i])
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
+		res = res * 10 + str[i++] - '0';
 	res = res * sign;
 	if (res > INT_MAX || res <INT_MIN)
 	{
 		ft_putstr_fd("Error\n",2);
-		return (-1);
+		return (9999999999);
 	}
 	return (res);
 }

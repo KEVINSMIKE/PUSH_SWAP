@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mballo <mballo@learner.42.tech>            +#+  +:+       +#+        */
+/*   By: mballo <mballo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 07:48:19 by mballo            #+#    #+#             */
-/*   Updated: 2026/05/12 17:27:57 by mballo           ###   ########.fr       */
+/*   Updated: 2026/05/13 13:45:31 by mballo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # define INT_MIN -2147483648
 # define INT_MAX  2147483647
+# define LONG_MAX_VAL 9223372036854775807
 typedef struct s_list
 {
 	int		nb;
