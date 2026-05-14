@@ -17,5 +17,5 @@ void	ft_rrr(t_ps *ps)
 	ft_reverse_rotate(&ps->a);
 	ft_reverse_rotate(&ps->b);
 	ft_putstr("rrr\n");
-	ps->ops.rr++;
+	ps->ops.rrr++;
 }

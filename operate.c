@@ -28,21 +28,21 @@ void	ft_sb(t_ps *ps)
 
 void	ft_ss(t_ps *ps)
 {
-	ft_swap(&ps->a, &ps->b);
-	ft_swap(&ps->b, &ps->a);
+	ft_swap(&ps->a);
+	ft_swap(&ps->b);
 	ft_putstr("ss\n");
 	ps->ops.ss++;
 }
 
-void	ft_push(t_ps *ps)
+void	ft_pa(t_ps *ps)
 {
-	ft_push(&ps->a);
+	ft_push(&ps->a, &ps->b);
 	ft_putstr("pa\n");
 	ps->ops.pa++;
 }
-void	ft_push(t_ps *ps)
+void	ft_pb(t_ps *ps)
 {
-	ft_push(&ps->b);
+	ft_push(&ps->b, &ps->a);
 	ft_putstr("pb\n");
 	ps->ops.pb++;
 }

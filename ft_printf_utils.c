@@ -12,23 +12,23 @@
 
 #include "push_swap.h"
 
-int	ft_putchar(char c)
+int	ft_putchar_fd(char c, int fd)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 	return (1);
 }
 
-int	ft_putstr(char *str)
+int	ft_putstr_fd(char *str, int fd)
 {
 	int	i;
-
-	i = 0;
-	while (str[i])
-		write(1, &str[i++], 1);
+  
+	i = -1;
+	while (str[++i])
+		ft_putchar_fd(str[i], fd);
 	return (i);
 }
 
-int	ft_putnbrbase(long unsigned int nbr, char base)
+int	ft_putnbrbase(int fd, long unsigned int nbr, char base)
 {
 	char	*basechar;
 	int		convert_base;
@@ -51,44 +51,44 @@ int	ft_putnbrbase(long unsigned int nbr, char base)
 		convert_base = 10;
 	}
 	if (nbr >= (unsigned long) convert_base)
-		count += ft_putnbrbase(nbr / convert_base, base);
-	count += ft_putchar(basechar[nbr % convert_base]);
+		count += ft_putnbrbase(fd, nbr / convert_base, base);
+	count += _ft_putchar_fd(basechar[nbr % convert_base], fd);
 	return (count);
 }
 
-int	ft_putaddress(long unsigned int c)
+int	ft_putaddress(int fd, long unsigned int c)
 {
 	int	count;
 
 	count = 0;
 	if (c == 0)
 	{
-		count += ft_putstr("0x0");
+		count += ft_putstr_fd("0x0", fd);
 		return (count);
 	}
-	count += ft_putstr("0x");
-	count += ft_putnbrbase((unsigned long)c, 'x');
+	count += ft_putstr_fd("0x", fd);
+	count += ft_putnbrbase(fd, (unsigned long)c, 'x');
 	return (count);
 }
 
-int	ft_putnbr(int nbr)
+int	ft_putnbr(int nbr, int fd)
 {
 	int	count;
 
 	count = 0;
 	if (nbr == -2147483648)
 	{
-		write(1, "-2147483648", 11);
+		write(fd, "-2147483648", 11);
 		return (11);
 	}
 	if (nbr < 0)
 	{
-		write(1, "-", 1);
+		write(fd, "-", 1);
 		count++;
 		nbr = -nbr;
 	}
 	if (nbr >= 10)
-		count += ft_putnbr(nbr / 10);
-	count += ft_putchar(nbr % 10 + '0');
+		count += ft_putnbr(nbr / 10, fd);
+	count += ft_putchar_fd(nbr % 10 + '0', fd);
 	return (count);
 }

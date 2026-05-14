@@ -12,20 +12,20 @@
 
 #include "push_swap.h"
 
-void	ra(t_ps *ps)
+void	ft_ra(t_ps *ps)
 {
 	rotate(&ps->a);
 	ft_putstr("ra\n");
 	ps->ops.ra++;
 }
-void	rb(t_ps *ps)
+void	ft_rb(t_ps *ps)
 {
 	rotate(&ps->b);
 	ft_putstr("rb\n");
 	ps->ops.rb++;
 }
 
-void	rr(t_ps *ps)
+void	ft_rr(t_ps *ps)
 {
 	ft_rotate(&ps->a);
 	ft_rotate(&ps->b);
@@ -33,13 +33,13 @@ void	rr(t_ps *ps)
 	ps->ops.rr++;
 }
 
-void	rra(t_ps *ps)
+void	ft_rra(t_ps *ps)
 {
 	ft_reverse_rotate(&ps->a);
 	ft_putstr("rra\n");
 	ps->ops.rra++;
 }
-void	rra(t_ps *ps)
+void	ft_rrb(t_ps *ps)
 {
 	ft_reverse_rotate(&ps->b);
 	ft_putstr("rrb\n");

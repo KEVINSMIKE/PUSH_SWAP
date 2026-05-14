@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_printf_fd(int fd, const char *format, ...)
 {
 	va_list	args;
 	int		i;
@@ -26,29 +26,45 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			count += ft_find_arg(format[i], args);
+			count += ft_find_arg(fd,format[i], args);
 		}
 		else
-			count += ft_putchar(format[i]);
+			count += ft_putchar_fd(format[i], fd);
 		i++;
 	}
 	va_end(args);
 	return (count);
 }
+int	ft_putfloat_fd(double nbr, int fd)
+{
+	int	entier;
+	int	decimal;
+	int	count;
 
-int	ft_find_arg(char c, va_list args)
+	count = 0;
+	entier = (int)(nbr * 100);
+	decimal = (int)(nbr * 10000) % 100;
+	count += ft_putnbr(entier, fd);
+	count += ft_putchar_fd('.', fd);
+	count += ft_putnbr(decimal, fd);
+	return (count);
+}
+
+int	ft_find_arg(int fd, char c, va_list args)
 {
 	if (c == 'c')
-		return (ft_putchar(va_arg(args, int)));
+		return (ft_putchar_fd(va_arg(args, int), fd));
 	else if (c == 's')
-		return (ft_putstr(va_arg(args, char *)));
+		return (ft_putstr_fd(va_arg(args, char *), fd));
 	else if (c == 'p')
-		return (ft_putaddress((long unsigned int)va_arg(args, void *)));
+		return (ft_putaddress(fd, (long unsigned int)va_arg(args, void *)));
 	else if (c == 'd' || c == 'i')
-		return (ft_putnbr(va_arg(args, int)));
+		return (ft_putnbr(va_arg(args, int), fd));
 	else if (c == 'u' || c == 'x' || c == 'X')
-		return (ft_putnbrbase(va_arg(args, unsigned int), c));
+		return (ft_putnbrbase(fd, va_arg(args, unsigned int), c));
 	else if (c == '%')
-		return (ft_putchar('%'));
+		return (ft_putchar_fd('%',fd));
+	else if (c == 'f')
+		return (ft_putfloat_fd(va_arg(args, double), fd));
 	return (0);
 }

@@ -12,44 +12,130 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define INT_MIN -2147483648
-# define INT_MAX  2147483647
-# define LONG_MAX_VAL 9223372036854775807
-typedef struct s_list
-{
-	int		nb;
-	struct s_list *next;
-}	t_list;
+ 
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+ 
 
-typedef struct s_ps
-{
-	t_list	*a;
-	t_list	*b;
-	int		size;
-	double	disorder;
-	t_strategy	strategy;
-	int		bench;
-	t_ops	ops;
-}	t_ps;
+ 
+# define INT_MIN      -2147483648
+# define INT_MAX       2147483647
+# define LONG_MAX_VAL  9223372036854775807
+ 
 
-typedef	enum e_strategy
+ 
+typedef enum e_strategy
 {
 	STRAT_ADAPTIVE = 0,
 	STRAT_SIMPLE,
 	STRAT_MEDIUM,
 	STRAT_COMPLEX,
 }	t_strategy;
-
+ 
 typedef struct s_ops
 {
-	int sa; int sb; int ss;
-	int pa; int pb;
-	int ra; int rb; int rr;
-	int rra; int rrb; int rrr;
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
 }	t_ops;
+ 
+typedef struct s_list
+{
+	int				nb;
+	int				index;
+	struct s_list	*next;
+}	t_list;
+ 
+typedef struct s_ps
+{
+	t_list		*a;
+	t_list		*b;
+	int			size;
+	double		disorder;
+	t_strategy	strategy;
+	int			bench;
+	t_ops		ops;
+}	t_ps;
+ 
 
-# include <stdlib.h>
-# include <unistd.h>
+ 
+void	ft_swap(t_list **lst);
+void	ft_push(t_list **lsta, t_list **lstb);
+void	ft_rotate(t_list **lst);
+void	ft_reverse_rotate(t_list **lst);
 
+ 
+void	ft_sa(t_ps *ps);
+void	ft_sb(t_ps *ps);
+void	ft_ss(t_ps *ps);
+void	ft_pa(t_ps *ps);
+void	ft_pb(t_ps *ps);
+ 
 
+ 
+void	ft_ra(t_ps *ps);
+void	ft_rb(t_ps *ps);
+void	ft_rr(t_ps *ps);
+void	ft_rra(t_ps *ps);
+void	ft_rrb(t_ps *ps);
+ 
+
+ 
+void	ft_rrr(t_ps *ps);
+ 
+
+ 
+int		ft_is_valid_int(char *str);
+long	ft_atoi(char *str);
+int		ft_have_double(t_list **lst);
+ 
+
+ 
+void	ft_lst_free(t_list **lst);
+void	ft_lst_addfront(t_list **lst, t_list *new);
+t_list	*ft_lstnew(int content);
+t_list	**ft_create_lst(int argc, char **argv);
+ 
+
+ 
+int		ft_lst_size(t_list **lst);
+int		ft_is_sort(t_list **lst);
+void	ft_index(t_list **lst);
+double	ft_desorder(t_list **lst);
+ 
+
+ 
+char	*ft_get_strategy_name(t_ps *ps);
+void	ft_print_bench(t_ps *ps);
+ 
+
+ 
+int		ft_printf_fd(int fd, const char *format, ...);
+int		ft_find_arg(int fd, char c, va_list args);
+ 
+
+ 
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *str, int fd);
+int		ft_putnbr(int nbr, int fd);
+int		ft_putnbrbase(int fd, long unsigned int nbr, char base);
+int		ft_putaddress(int fd, long unsigned int c);
+int		ft_putfloat_fd(double nbr, int fd);
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+ 
+
+ 
+void	ft_algo(t_ps *ps);
+int		ft_strcmp(char *s1, char *s2);
+ 
 #endif
