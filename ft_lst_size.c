@@ -6,7 +6,7 @@
 /*   By: mballo <mballo@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 17:07:31 by mballo            #+#    #+#             */
-/*   Updated: 2026/05/15 00:51:07 by mballo           ###   ########.fr       */
+/*   Updated: 2026/05/22 09:50:21 by mballo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	ft_lst_size(t_list **lst)
 
 int	ft_is_sort(t_list **lst)
 {
-	t_list	*tmp;
 	t_list	*indice;
 
 	if(!lst || !*lst)

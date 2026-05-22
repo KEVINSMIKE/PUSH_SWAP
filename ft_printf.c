@@ -68,3 +68,18 @@ int	ft_find_arg(int fd, char c, va_list args)
 		return (ft_putfloat_fd(va_arg(args, double), fd));
 	return (0);
 }
+int    ft_putchar(char c)
+{
+    write(1, &c, 1);
+    return (1);
+}
+
+int    ft_putstr(char *str)
+{
+    int    i;
+
+    i = 0;
+    while (str[i])
+        write(1, &str[i++], 1);
+    return (i);
+}

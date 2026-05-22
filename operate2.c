@@ -14,13 +14,13 @@
 
 void	ft_ra(t_ps *ps)
 {
-	rotate(&ps->a);
+	ft_rotate(&ps->a);
 	ft_putstr("ra\n");
 	ps->ops.ra++;
 }
 void	ft_rb(t_ps *ps)
 {
-	rotate(&ps->b);
+	ft_rotate(&ps->b);
 	ft_putstr("rb\n");
 	ps->ops.rb++;
 }

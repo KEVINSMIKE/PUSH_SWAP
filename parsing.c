@@ -26,6 +26,7 @@ int	ft_is_valid_int(char *str)
 			return (0);
 		if (!(str[i] >= '0' && str[i] <='9'))
 			return (0);
+		i++;
 	}
 	return (1);
 }

@@ -45,14 +45,14 @@ int	ft_putnbrbase(int fd, long unsigned int nbr, char base)
 		basechar = "0123456789ABCDEF";
 		convert_base = 16;
 	}
-	else if (base == 'u')
+	else
 	{
 		basechar = "0123456789";
 		convert_base = 10;
 	}
 	if (nbr >= (unsigned long) convert_base)
 		count += ft_putnbrbase(fd, nbr / convert_base, base);
-	count += _ft_putchar_fd(basechar[nbr % convert_base], fd);
+	count += ft_putchar_fd(basechar[nbr % convert_base], fd);
 	return (count);
 }
 

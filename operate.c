@@ -34,15 +34,15 @@ void	ft_ss(t_ps *ps)
 	ps->ops.ss++;
 }
 
-void	ft_pa(t_ps *ps)
+void    ft_pa(t_ps *ps)
 {
-	ft_push(&ps->a, &ps->b);
-	ft_putstr("pa\n");
-	ps->ops.pa++;
+    ft_push(&ps->b, &ps->a);
+    ft_putstr("pa\n");
+    ps->ops.pa++;
 }
 void	ft_pb(t_ps *ps)
 {
-	ft_push(&ps->b, &ps->a);
+	ft_push(&ps->a, &ps->b);
 	ft_putstr("pb\n");
 	ps->ops.pb++;
 }

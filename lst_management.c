@@ -17,7 +17,7 @@ void	ft_swap(t_list **lst)
 	t_list	*a;
 	t_list	*b;
 
-	if (!lst || *lst || !(*lst)->next)
+	if (!lst || !*lst || !(*lst)->next)
 		return ;
 	a = (*lst);
 	b = (*lst)->next;

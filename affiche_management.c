@@ -11,6 +11,17 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int    ft_strcmp(char *s1, char *s2)
+{
+    int    i;
+
+    i = 0;
+    while (s1[i] && s1[i] == s2[i])
+        i++;
+    return (s1[i] - s2[i]);
+}
+
 char	*ft_get_strategy_name(t_ps *ps)
 {
 	if (ps->strategy == STRAT_SIMPLE)

@@ -1,3 +1,14 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mballo <mballo@learner.42.tech>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/05/22 09:25:16 by mballo            #+#    #+#              #
+#    Updated: 2026/05/22 09:25:16 by mballo           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 NAME = push_swap
  
@@ -15,30 +26,27 @@ SRCS =	main_push_swap.c \
 		affiche_management.c \
 		ft_printf.c \
 		ft_printf_utils.c \
-		algo.c
+		radix.c \
+		chunk_sort.c \
+		ft_minimax.c \
+		ft_algo.c
  
 OBJS = $(SRCS:.c=.o)
  
-# règle principale
 all: $(NAME)
  
-# compilation du binaire
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
  
-# compilation .c → .o
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
  
-# nettoyage objets
 clean:
 	rm -f $(OBJS)
  
-# nettoyage complet
 fclean: clean
 	rm -f $(NAME)
  
-# recompile tout
 re: fclean all
  
 .PHONY: all clean fclean re

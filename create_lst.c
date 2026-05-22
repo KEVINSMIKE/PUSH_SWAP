@@ -49,34 +49,31 @@ t_list  *ft_lstnew(int content)
 
 }
 
-t_list  **ft_create_lst(int argc, char **argv)
+t_list  *ft_create_lst(int argc, char **argv)
 {
     int i;
     long value;
-    t_list  **lst;
+    t_list  *lst;
     t_list  *node;
 
-    lst = malloc(sizeof(t_list *));
-    if (!lst)
-        return (NULL);
-    *lst = NULL;
+    lst = NULL;
     i = argc - 1;
-    while (i >= 1)
+    while (i >= 0)
     {
         if (ft_is_valid_int(argv[i]) == 0)
         {
             ft_putstr_fd("Error\n", 2);
-            ft_lst_free(lst);
+            ft_lst_free(&lst);
             return (NULL);
         }
         value = ft_atoi(argv[i]);
         if (value == LONG_MAX_VAL)
         {
-            ft_lst_free(lst);
+            ft_lst_free(&lst);
             return (NULL);
         }
         node = ft_lstnew(value);
-        ft_lst_addfront(lst,node);
+        ft_lst_addfront(&lst,node);
         i--;
         }
     return (lst);
