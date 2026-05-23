@@ -6,7 +6,7 @@
 /*   By: mballo <mballo@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 08:52:58 by mballo            #+#    #+#             */
-/*   Updated: 2026/05/23 12:29:28 by mballo           ###   ########.fr       */
+/*   Updated: 2026/05/23 12:52:19 by mballo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_algo(t_ps *ps)
 	{
 		if (ps->disorder < 0.2)
 			sort_low_disorder(ps);
-		else if (ps->disorder < 0.5)
+		else if (ps->disorder < 0.3)
 			sort_medium(ps);
 		else
 			ft_radixsort(ps);
