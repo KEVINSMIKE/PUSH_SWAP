@@ -6,7 +6,7 @@
 /*   By: mballo <mballo@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 08:45:55 by mballo            #+#    #+#             */
-/*   Updated: 2026/05/22 09:58:06 by mballo           ###   ########.fr       */
+/*   Updated: 2026/05/23 11:15:49 by mballo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_radixsort(t_ps *head)
 		len_lst = size;
 		while (len_lst > 0)
 		{
-			if ((head->a->index >> bit) & 1)
+			if ((head->a->nb >> bit) & 1)
 				ft_ra(head);
 			else
 				ft_pb(head);

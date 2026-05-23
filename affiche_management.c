@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-int    ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-    int    i;
+	int	i;
 
-    i = 0;
-    while (s1[i] && s1[i] == s2[i])
-        i++;
-    return (s1[i] - s2[i]);
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
 
 char	*ft_get_strategy_name(t_ps *ps)
@@ -38,19 +38,21 @@ char	*ft_get_strategy_name(t_ps *ps)
 		return ("Adaptive / O(n log n)");
 	return (NULL);
 }
+
 void	ft_print_bench(t_ps *ps)
 {
 	int	total;
 
 	total = 0;
-	total = ps->ops.sa + ps->ops.sb + ps->ops.ss 
-	+ ps->ops.pa + ps->ops.pb + ps->ops.ra + ps->ops.rb
-	+ ps->ops.rr + ps->ops.rra + ps->ops.rrb + ps->ops.rrr;
-	ft_printf_fd(2,"[bench] disorder: %f \n",ps->disorder *100);
-	ft_printf_fd(2,"[bench] strategy: %s \n", ft_get_strategy_name(ps));
-	ft_printf_fd(2,"[bench] total_ops: %d\n", total);
-	ft_printf_fd(2,"[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",ps->ops.sa,
+	total = ps->ops.sa + ps->ops.sb + ps->ops.ss + ps->ops.pa + ps->ops.pb
+		+ ps->ops.ra + ps->ops.rb + ps->ops.rr + ps->ops.rra
+		+ ps->ops.rrb + ps->ops.rrr;
+	ft_printf_fd(2, "[bench] disorder: %f \n", ps->disorder * 100);
+	ft_printf_fd(2, "[bench] strategy: %s \n", ft_get_strategy_name(ps));
+	ft_printf_fd(2, "[bench] total_ops: %d\n", total);
+	ft_printf_fd(2, "[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n", ps->ops.sa,
 		ps->ops.sb, ps->ops.ss, ps->ops.pa, ps->ops.pb);
-	ft_printf_fd(2,"[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n", 
-		ps->ops.ra, ps->ops.rb, ps->ops.rr, ps->ops.rra, ps->ops.rrb, ps->ops.rrr);
+	ft_printf_fd(2, "[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+		ps->ops.ra, ps->ops.rb, ps->ops.rr,
+		ps->ops.rra, ps->ops.rrb, ps->ops.rrr);
 }

@@ -30,7 +30,7 @@ void	ft_push(t_list **lsta, t_list **lstb)
 {
 	t_list	*tmp;
 
-	if(!*lsta)
+	if (!*lsta)
 		return ;
 	tmp = (*lsta);
 	(*lsta) = (*lsta)->next;
@@ -44,10 +44,10 @@ void	ft_rotate(t_list **lst)
 	t_list	*last;
 
 	if (!lst || !*lst || !(*lst)->next)
-    	return ;
+		return ;
 	first = (*lst);
 	last = (*lst);
-	while((last)->next)
+	while ((last)->next)
 		last = last->next;
 	last->next = first;
 	(*lst) = first->next;
@@ -62,7 +62,7 @@ void	ft_reverse_rotate(t_list **lst)
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
 	store = (*lst);
-	while(store->next->next)
+	while (store->next->next)
 		store = store->next;
 	last = store->next;
 	store->next = NULL;

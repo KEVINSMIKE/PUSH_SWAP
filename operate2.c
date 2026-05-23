@@ -18,6 +18,7 @@ void	ft_ra(t_ps *ps)
 	ft_putstr("ra\n");
 	ps->ops.ra++;
 }
+
 void	ft_rb(t_ps *ps)
 {
 	ft_rotate(&ps->b);

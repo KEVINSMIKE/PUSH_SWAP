@@ -6,7 +6,7 @@
 /*   By: mballo <mballo@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 08:48:16 by mballo            #+#    #+#             */
-/*   Updated: 2026/05/22 08:51:05 by mballo           ###   ########.fr       */
+/*   Updated: 2026/05/23 11:41:21 by mballo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,17 @@ void	sort_medium(t_ps *head)
 	pos = 0;
 	while (pos < size)
 	{
-		while (head->a)
+		while (size > 0)
 		{
-			if (head->a->index >= pos
-				&& head->a->index < pos + chunk_size)
+			if (head->a->index >= pos && head->a->index < pos + chunk_size)
 			{
 				ft_pb(head);
-				if (head->b && head->b->next
-					&& head->b->index < pos)
+				if (head->b && head->b->next && head->b->index < pos)
 					ft_rb(head);
 			}
 			else
 				ft_ra(head);
+			size --;
 		}
 		pos += chunk_size;
 	}
