@@ -26,7 +26,7 @@ int	ft_printf_fd(int fd, const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			count += ft_find_arg(fd,format[i], args);
+			count += ft_find_arg(fd, format[i], args);
 		}
 		else
 			count += ft_putchar_fd(format[i], fd);
@@ -35,6 +35,7 @@ int	ft_printf_fd(int fd, const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
 int	ft_putfloat_fd(double nbr, int fd)
 {
 	int	entier;
@@ -63,7 +64,7 @@ int	ft_find_arg(int fd, char c, va_list args)
 	else if (c == 'u' || c == 'x' || c == 'X')
 		return (ft_putnbrbase(fd, va_arg(args, unsigned int), c));
 	else if (c == '%')
-		return (ft_putchar_fd('%',fd));
+		return (ft_putchar_fd('%', fd));
 	else if (c == 'f')
 		return (ft_putfloat_fd(va_arg(args, double), fd));
 	return (0);
@@ -74,12 +75,12 @@ int    ft_putchar(char c)
     return (1);
 }
 
-int    ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-    int    i;
+    int	i;
 
     i = 0;
-    while (str[i])
-        write(1, &str[i++], 1);
-    return (i);
+	while (str[i])
+    	write(1, &str[i++], 1);
+	return (i);
 }

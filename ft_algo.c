@@ -6,19 +6,17 @@
 /*   By: mballo <mballo@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 08:52:58 by mballo            #+#    #+#             */
-/*   Updated: 2026/05/22 09:53:47 by mballo           ###   ########.fr       */
+/*   Updated: 2026/05/23 12:29:28 by mballo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include "push_swap.h"
- 
 static void	sort_low_disorder(t_ps *ps)
 {
 	int	sorted;
 	int	i;
- 
+
 	sorted = 0;
 	while (!sorted)
 	{
@@ -36,7 +34,7 @@ static void	sort_low_disorder(t_ps *ps)
 		}
 	}
 }
- 
+
 void	ft_algo(t_ps *ps)
 {
 	if (ft_is_sort(&ps->a))

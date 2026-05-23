@@ -6,7 +6,7 @@
 /*   By: mballo <mballo@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 08:48:16 by mballo            #+#    #+#             */
-/*   Updated: 2026/05/23 11:41:21 by mballo           ###   ########.fr       */
+/*   Updated: 2026/05/23 12:33:19 by mballo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,16 @@ void	sort_medium(t_ps *head)
 	int	chunk_size;
 	int	pos;
 	int	size;
+	int	i;
 
+	i = ft_lst_size(&head->a);
 	size = ft_lst_size(&head->a);
 	ft_index(&head->a);
 	chunk_size = get_chunk_size(size);
 	pos = 0;
 	while (pos < size)
 	{
-		while (size > 0)
+		while (i > 0)
 		{
 			if (head->a->index >= pos && head->a->index < pos + chunk_size)
 			{
@@ -59,7 +61,7 @@ void	sort_medium(t_ps *head)
 			}
 			else
 				ft_ra(head);
-			size --;
+			i--;
 		}
 		pos += chunk_size;
 	}
